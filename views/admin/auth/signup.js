@@ -14,7 +14,7 @@ module.exports = () => {
             <div>
               <label id='password'>Password</label>
             </div>
-            <input type='password' name='Password' placeholder='Password' for='password'>
+            <input type='password' name='password' placeholder='Password' for='password'>
           </div>
           <div>
             <div>
