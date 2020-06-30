@@ -7,15 +7,15 @@ module.exports = () => {
         <form method='POST'>
           <div>
             <div>
-              <label id='username'>Username</label>
+              <label id='email'>Username</label>
             </div>
-            <input type='text' name='username' placeholder='Username' for='username'>
+            <input type='text' name='email' placeholder='Email' for='email'>
           </div>
           <div>
               <div>
                 <label id='password'>Password</label>
               </div>
-              <input type='password' name='Password' placeholder='Password' for='password'>
+              <input type='password' name='password' placeholder='Password' for='password'>
             </div>
           <div>
           <div>

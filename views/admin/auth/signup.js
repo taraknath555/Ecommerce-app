@@ -6,9 +6,9 @@ module.exports = () => {
         <form method='POST'>
           <div>
             <div>
-              <label id='username'>Username</label>
+              <label id='email'>Username</label>
             </div>
-            <input type='text' name='username' placeholder='Username' for='username'>
+            <input type='text' name='email' placeholder='Email' for='email'>
           </div>
           <div>
             <div>
