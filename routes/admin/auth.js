@@ -2,6 +2,7 @@ const express = require('express')
 const {validationResult} = require('express-validator')
 const adminSignupTemplet = require('../../views/admin/auth/signup')
 const adminSigninTemplet = require('../../views/admin/auth/signin')
+const {handleErrors} = require('./middlewares')
 const adminRepo = require('../../repositories/admin')
 const {
   checkEmail,
@@ -22,14 +23,8 @@ router.get('/signup', (req,res) => {
 router.post(
   '/signup',
   [checkEmail, checkPassword, checkConfirmPassword],
+  handleErrors(adminSignupTemplet),
   async (req,res) => {
-    //checking validation error
-    const errors = validationResult(req)
-    if(!errors.isEmpty()){
-      return res.send(adminSignupTemplet({errors}))
-    }
-
-    //creating new record
     const {email,password,confirmPassword} = req.body
     const user = await adminRepo.create({email,password})
     req.session.userId = user.id
@@ -43,12 +38,8 @@ router.get('/signin', (req,res) => {
 router.post(
   '/signin',
   [checkEmailExist, checkValidPassword],
+  handleErrors(adminSigninTemplet),
   async (req,res) => {
-    const errors = validationResult(req)
-    if(!errors.isEmpty()){
-      return res.send(adminSigninTemplet({errors}))
-    }
-
     const user = await adminRepo.getOneBy({email:req.body.email})
     req.session.userId = user.id
     res.send('Sign In successfully!')

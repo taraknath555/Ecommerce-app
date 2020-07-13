@@ -55,5 +55,16 @@ module.exports = {
       if(!validPassword){
         throw new Error('Invalid password')
       } 
-    })
+    }),
+
+  checkTitle : check('title')
+    .trim()
+    .isLength({min:4, max:30})
+    .withMessage('Title must be between 4 to 30 charcaters'),
+
+  checkPrice : check('price')
+    .trim()
+    .toInt()
+    .isInt({min:100})
+    .withMessage('Price must be a integer greater then 99') 
 }
