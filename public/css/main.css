@@ -144,3 +144,15 @@ body {
   display: flex;
   align-items: center;
 }
+div.column{
+  float:right
+}
+
+#adminButtons a{
+  float:right;
+  margin-right:5px
+}
+
+#adminButtons h1{
+  float:left;
+}

@@ -28,7 +28,7 @@ router.post(
     const {email,password,confirmPassword} = req.body
     const user = await adminRepo.create({email,password})
     req.session.userId = user.id
-    res.send('Sign up Successfully!')
+    res.redirect('/admin/products')
 })
 
 router.get('/signin', (req,res) => {
@@ -42,12 +42,12 @@ router.post(
   async (req,res) => {
     const user = await adminRepo.getOneBy({email:req.body.email})
     req.session.userId = user.id
-    res.send('Sign In successfully!')
+    res.redirect('/admin/products')
 })
 
 router.get('/signout', (req,res) => {
   req.session = null
-  res.send('Logged out')
+  res.redirect('/signin')
 })
 
 module.exports = router
